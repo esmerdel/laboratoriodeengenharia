@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Número Primo</title>
+</head>
+<body>
+    <h1>Verifique se um número é primo</h1>
+    <button id="checkPrimeBtn">Verificar Número Primo</button>
+    <button onclick="window.location.href='index.html'">Voltar para Index</button>
+
+    <script>
+        function isPrime(number) {
+            if (number <= 1) return false;
+            if (number === 2) return true;
+
+            const sqrt = Math.sqrt(number);
+            for (let i = 2; i <= sqrt; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function promptUser() {
+            let userInput = prompt("Digite um número inteiro positivo:");
+
+            if (userInput === null) return;
+
+            let number = parseInt(userInput, 10);
+
+            if (isNaN(number) || number <= 0) {
+                alert("Por favor, digite um número inteiro positivo.");
+                promptUser();
+            } else {
+                if (isPrime(number)) {
+                    alert(number + " é um número primo.");
+                } else {
+                    alert(number + " não é um número primo.");
+                }
+            }
+        }
+
+        document.getElementById('checkPrimeBtn').addEventListener('click', promptUser);
+    </script>
+</body>
+</html>
