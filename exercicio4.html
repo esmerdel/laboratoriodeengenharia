@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -77,89 +76,6 @@
         promptUser();
     </script>
 
-    <button onclick="window.location.href='index.html'">Voltar para Index</button>
+    <button onclick="window.location.href='index1.html'">Voltar para Index</button>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verificador de Tipo de Dado</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f9f9a0; 
-            color: #333333; 
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            color: #ffffff;
-            background-color: #f39c12; 
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        button:hover {
-            background-color: #e67e22; 
-        }
-
-        button:active {
-            background-color: #d35400; 
-        }
-    </style>
-</head>
-<body>
-    <h1>Verificador de Tipo de Dado</h1>
-
-    <script>
-        function promptUser() {
-            let userInput = prompt("Digite algum dado:");
-
-            if (userInput === null) return; 
-
-            let confirmation = confirm("Você deseja verificar o tipo do dado informado?");
-
-            if (confirmation) {
-                let dataType = typeof userInput;
-
-                if (!isNaN(userInput) && userInput.trim() !== "") {
-                    dataType = "Number";
-                }
-
-                document.body.innerHTML += `<p>O tipo do dado informado é: ${dataType}</p>`;
-            } else {
-                document.body.innerHTML += `<p>Obrigado por visitar esta página.</p>`;
-            }
-        }
-
-        promptUser();
-    </script>
-
-    <button onclick="window.location.href='index.html'">Voltar para Index</button>
-</body>
-</html>
->>>>>>> cafe1d534f37374596fb29381a67f27f828f5d5b
