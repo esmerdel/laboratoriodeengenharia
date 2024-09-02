@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio em Tempo Real</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: #61dafb;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        #relogio {
+            font-size: 3rem;
+            font-weight: bold;
+            background-color: #20232a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #61dafb;
+            color: #282c34;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relógio em Tempo Real</h1>
+    <p id="relogio"></p>
+
+    <button onclick="window.location.href='index2.html'">Voltar para Página Principal</button>
+
+    <script>
+        function atualizarRelogio() {
+            const dataAtual = new Date();
+            const horas = String(dataAtual.getHours()).padStart(2, '0');
+            const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
+            const segundos = String(dataAtual.getSeconds()).padStart(2, '0');
+
+            const horarioAtual = `${horas}:${minutos}:${segundos}`;
+            document.getElementById("relogio").innerText = horarioAtual;
+
+            setTimeout(atualizarRelogio, 1000);
+        }
+
+        atualizarRelogio();
+    </script>
+</body>
+</html>
