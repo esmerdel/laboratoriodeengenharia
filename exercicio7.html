@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromos</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c3e50; /* Cinza escuro */
+            color: #ecf0f1; /* Texto claro */
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ecf0f1;
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #34495e; /* Cinza escuro com tonalidade diferente */
+            color: #ecf0f1;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de Palíndromos</h1>
+    <input type="text" id="texto" placeholder="Digite uma palavra ou frase">
+    <button onclick="verificarPalindromo()">Verificar</button>
+    
+    <p id="output"></p>
+
+    <button onclick="window.location.href='index2.html'">Voltar para Página Principal</button>
+
+    <script>
+        function verificarPalindromo() {
+            const texto = document.getElementById("texto").value;
+            const textoLimpo = texto.replace(/[\W_]/g, '').toLowerCase();
+            const textoInvertido = textoLimpo.split('').reverse().join('');
+
+            if (textoLimpo === textoInvertido) {
+                alert("O texto é um palíndromo!");
+            } else {
+                alert("O texto não é um palíndromo.");
+            }
+        }
+    </script>
+</body>
+</html>
