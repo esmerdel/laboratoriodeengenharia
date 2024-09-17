@@ -1,0 +1,102 @@
+/* Define o estilo geral do formulário */
+form {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Estilo do título do formulário */
+h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #000;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Estilo das labels */
+label {
+    display: block;
+    font-size: 10px;
+    color: #222;
+    opacity: 0.9;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 10px 0 5px;
+}
+
+/* Estilo dos inputs */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="date"] {
+    width: calc(100% - 22px); /* Ajusta a largura para incluir padding e borda */
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #999;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Estilo dos inputs com erro */
+input[type="text"].error,
+input[type="email"].error,
+input[type="url"].error {
+    border-bottom-color: red;
+}
+
+/* Estilo das mensagens de erro */
+.error {
+    color: red;
+    font-size: 10px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Estilo dos botões */
+button {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 5px;
+    outline: none;
+}
+
+button.active {
+    background-color: #ddd;
+}
+
+/* Estilo do botão de envio */
+input[type="submit"] {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    outline: none;
+}
+
+/* Estilo dos contêineres de telefone e tipo */
+.telefone-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.tipo-container {
+    margin-top: 20px;
+    text-align: center;
+}

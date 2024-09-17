@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Formulário de Cadastro</h1>
+    <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required>
+        <div id="erroNome" class="error"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <div id="erroEmail" class="error"></div>
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="text" id="dataNascimento" required>
+        <div id="erroDataNascimento" class="error"></div>
+
+        <label for="telefoneFixo">Telefone Fixo:</label>
+        <input type="text" id="telefoneFixo" required>
+        <div id="erroTelefoneFixo" class="error"></div>
+
+        <label for="telefoneCelular">Telefone Celular:</label>
+        <input type="text" id="telefoneCelular" required>
+        <div id="erroTelefoneCelular" class="error"></div>
+
+        <div class="tipo-container">
+            <button type="button" onclick="mostrarCampos('aluno')">Aluno</button>
+            <button type="button" onclick="mostrarCampos('professor')">Professor</button>
+        </div>
+
+        <div id="camposAluno">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso">
+            <div id="erroCurso" class="error"></div>
+
+            <label for="matriculaAluno">Matrícula:</label>
+            <input type="text" id="matriculaAluno">
+            <div id="erroMatriculaAluno" class="error"></div>
+        </div>
+
+        <div id="camposProfessor">
+            <label for="areaAtuacao">Área de Atuação:</label>
+            <input type="text" id="areaAtuacao">
+            <div id="erroAreaAtuacao" class="error"></div>
+
+            <label for="matriculaProfessor">Matrícula:</label>
+            <input type="text" id="matriculaProfessor">
+            <div id="erroMatriculaProfessor" class="error"></div>
+
+            <label for="linkLattes">Link Lattes:</label>
+            <input type="url" id="linkLattes">
+            <div id="erroLinkLattes" class="error"></div>
+        </div>
+
+        <input type="submit" value="Enviar">
+    </form>
+    <script src="atividade.js"></script>
+</body>
+</html>
