@@ -11,6 +11,7 @@ class Pessoa {
         return `${this.nome}`;
     }
 }
+
 //Classe Aluno
 class Aluno extends Pessoa {
     constructor(nome, email, data_nascimento, telefone, curso, matriculaAluno) {
@@ -19,6 +20,7 @@ class Aluno extends Pessoa {
         this.matriculaAluno = matriculaAluno;
     }
 }
+
 //Classe Professor
 class Professor extends Pessoa {
     constructor(nome, email, data_nascimento, telefone, areaAtuacao, linkLattes, matriculaProfessor) {
@@ -27,6 +29,33 @@ class Professor extends Pessoa {
         this.linkLattes = linkLattes;
         this.matriculaProfessor = matriculaProfessor;
     }
+}
+
+// Função para armazenar informações em objetos
+function criarObjetoPessoa() {
+    let nome = document.getElementById('nome').value;
+    let email = document.getElementById('email').value;
+    let data_nascimento = document.getElementById('dataNascimento').value;
+    let telefone = document.getElementById('telefoneFixo').value || document.getElementById('telefoneCelular').value;
+    let pessoa;
+
+    // Se for aluno
+    if (document.getElementById('camposAluno').style.display === 'block') {
+        let curso = document.getElementById('curso').value;
+        let matriculaAluno = document.getElementById('matriculaAluno').value;
+        pessoa = new Aluno(nome, email, data_nascimento, telefone, curso, matriculaAluno);
+    }
+
+    // Se for professor
+    if (document.getElementById('camposProfessor').style.display === 'block') {
+        let areaAtuacao = document.getElementById('areaAtuacao').value;
+        let linkLattes = document.getElementById('linkLattes').value;
+        let matriculaProfessor = document.getElementById('matriculaProfessor').value;
+        pessoa = new Professor(nome, email, data_nascimento, telefone, areaAtuacao, linkLattes, matriculaProfessor);
+    }
+
+    console.log(pessoa);
+    return pessoa;
 }
 
 // Formatar Telefone Fixo
@@ -166,50 +195,50 @@ function mostrarCampos(tipo) {
     }
 }
 
-// Função para validar o formulário no envio
+// Função para validar o formulário no envio e armazenar as informações
 function validarForm(event) {
     // Impedir que o formulário seja enviado se houver erros
     let valid = true;
 
-    // Validate Nome
+    // Validar Nome
     if (!document.getElementById('nome').value.match(/^[a-zA-Z]+\s[a-zA-Z]+$/)) {
         document.getElementById('erroNome').textContent = 'Nome deve ser no formato "Nome Sobrenome".';
         valid = false;
     }
 
-    // Validate Email
+    // Validar Email
     if (!document.getElementById('email').value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
         document.getElementById('erroEmail').textContent = 'Email deve ser no formato "xxx@xxx.xxx".';
         valid = false;
     }
 
-    // Validate Data de Nascimento
+    // Validar Data de Nascimento
     if (!document.getElementById('dataNascimento').value.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
         document.getElementById('erroDataNascimento').textContent = 'Data de nascimento deve ser no formato "dd/mm/aaaa".';
         valid = false;
     }
 
-    // Validate Telefone Fixo
+    // Validar Telefone Fixo
     if (!document.getElementById('telefoneFixo').value.match(/^\(\d{2}\)\d{4}-\d{4}$/)) {
         document.getElementById('erroTelefoneFixo').textContent = 'Telefone fixo deve ser no formato "(xx)xxxx-xxxx".';
         valid = false;
     }
 
-    // Validate Telefone Celular
+    // Validar Telefone Celular
     if (!document.getElementById('telefoneCelular').value.match(/^\(\d{2}\)\d{5}-\d{4}$/)) {
-        document.getElementById('erroTelefoneCelular').textContent = 'Telefone celular deve ser no formato "(xx)xxxx-xxxx".';
+        document.getElementById('erroTelefoneCelular').textContent = 'Telefone celular deve ser no formato "(xx)xxxxx-xxxx".';
         valid = false;
     }
 
-    // Validate Campos Específicos
+    // Validar Campos Específicos
     if (document.getElementById('camposAluno').style.display === 'block') {
-        // Validate Curso
+        // Validar Curso
         if (!document.getElementById('curso').value) {
             document.getElementById('erroCurso').textContent = 'Curso é obrigatório para alunos.';
             valid = false;
         }
 
-        // Validate Matrícula Aluno
+        // Validar Matrícula Aluno
         if (!document.getElementById('matriculaAluno').value.match(/^\d{10}$/)) {
             document.getElementById('erroMatriculaAluno').textContent = 'Matrícula de aluno deve ter 10 dígitos.';
             valid = false;
@@ -217,19 +246,19 @@ function validarForm(event) {
     }
 
     if (document.getElementById('camposProfessor').style.display === 'block') {
-        // Validate Área de Atuação
+        // Validar Área de Atuação
         if (!document.getElementById('areaAtuacao').value) {
             document.getElementById('erroAreaAtuacao').textContent = 'Área de atuação é obrigatória para professores.';
             valid = false;
         }
 
-        // Validate Matrícula Professor
+        // Validar Matrícula Professor
         if (!document.getElementById('matriculaProfessor').value.match(/^\d{5}$/)) {
             document.getElementById('erroMatriculaProfessor').textContent = 'Matrícula de professor deve ter 5 dígitos.';
             valid = false;
         }
 
-        // Validate Link Lattes
+        // Validar Link Lattes
         if (!document.getElementById('linkLattes').value.match(/^https?:\/\/[^\s/$.?#].[^\s]*$/)) {
             document.getElementById('erroLinkLattes').textContent = 'Link Lattes deve ser uma URL válida.';
             valid = false;
@@ -237,7 +266,9 @@ function validarForm(event) {
     }
 
     if (!valid) {
-        event.preventDefault(); // Prevent form submission if validation fails
+        event.preventDefault(); // Impedir o envio do formulário se a validação falhar
+    } else {
+        criarObjetoPessoa(); // Cria o objeto Pessoa (Aluno ou Professor) ao submeter o formulário
     }
 }
 

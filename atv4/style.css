@@ -16,6 +16,7 @@ h1 {
     font-size: 26px;
     color: #000;
     font-family: Helvetica, Arial, sans-serif;
+    margin-bottom: 20px;
 }
 
 /* Estilo das labels */
@@ -25,7 +26,7 @@ label {
     color: #222;
     opacity: 0.9;
     font-family: Helvetica, Arial, sans-serif;
-    margin: 10px 0 5px;
+    margin: 5px 0;
 }
 
 /* Estilo dos inputs */
@@ -55,7 +56,7 @@ input[type="url"].error {
 .error {
     color: red;
     font-size: 10px;
-    margin-top: -10px;
+    margin-top: 2px;
     margin-bottom: 10px;
 }
 
@@ -68,7 +69,7 @@ button {
     font-family: Helvetica, Arial, sans-serif;
     padding: 10px 20px;
     cursor: pointer;
-    margin: 0 5px;
+    margin: 5px 0;
     outline: none;
 }
 
