@@ -29,6 +29,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    background-color: #e9ecef; /* Fundo cinza para os campos */
 }
 
 button {
@@ -49,42 +50,68 @@ h2 {
     margin-top: 20px;
 }
 
+/* Adiciona um espaço azul à esquerda da lista de tarefas */
 #task-list {
     list-style-type: none;
     padding: 0;
+    background-color: #ffffff; /* Azul */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 4px;
 }
 
+/* Estilo para cada item da tarefa */
 .task-item {
+    background-color: #ebebeb; /* Fundo branco para cada tarefa */
     margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    border-radius: 4px;
+    position: relative; /* Necessário para o alinhamento estático dos botões */
 }
 
-.task-item span {
-    margin-right: 10px;
+/* Estilo para a descrição da tarefa */
+.task-item .task-details {
+    flex-grow: 1; /* Faz a descrição ocupar todo o espaço à esquerda */
+    padding-right: 20px; /* Dá um espaçamento para os botões */
+}
+
+/* Contêiner que mantém os botões no final da linha */
+.task-item .task-buttons {
+    position: absolute;
+    right: 10px; /* Fixa os botões à direita */
+    display: flex;
+    gap: 5px; /* Espaçamento entre os botões */
 }
 
 .task-item button {
-    margin-left: 5px;
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.task-item button:nth-child(2) { /* Detalhes */
+.task-item button:nth-child(1) { /* Detalhes */
     background-color: #007bff; /* Azul */
     color: white;
 }
 
-.task-item button:nth-child(3) { /* Concluir */
+.task-item button:nth-child(2) { /* Concluir */
     background-color: #28a745; /* Verde */
     color: white;
 }
 
-.task-item button:nth-child(4) { /* Remover */
+.task-item button:nth-child(3) { /* Remover */
     background-color: #dc3545; /* Vermelho */
     color: white;
 }
 
 .task-item button:hover {
     opacity: 0.8; /* Efeito de hover para todos os botões */
+}
+
+/* Classe para riscar texto quando a tarefa é concluída */
+.concluida {
+    text-decoration: line-through;
+    color: gray; /* Opcional: mudar a cor do texto riscado */
 }
