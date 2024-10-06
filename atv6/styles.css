@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1b1b1b;
+    font-family: 'Roboto', sans-serif;
+}
+
+.letreiro {
+    font-size: 40px;
+    font-weight: bold;
+    color: #0dff00;
+    text-shadow: 0 0 10px rgba(13, 255, 0, 0.7), 
+                 0 0 20px rgba(13, 255, 0, 0.5), 
+                 0 0 30px rgba(13, 255, 0, 0.3);
+    animation: flicker 1.5s infinite alternate;
+    letter-spacing: 2px;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(13, 255, 0, 0.7),
+                     0 0 20px rgba(13, 255, 0, 0.5), 
+                     0 0 30px rgba(13, 255, 0, 0.3);
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 0 0 5px rgba(13, 255, 0, 0.5),
+                     0 0 10px rgba(13, 255, 0, 0.3), 
+                     0 0 20px rgba(13, 255, 0, 0.1);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 20px rgba(13, 255, 0, 0.9), 
+                     0 0 40px rgba(13, 255, 0, 0.7), 
+                     0 0 60px rgba(13, 255, 0, 0.5);
+    }
+}

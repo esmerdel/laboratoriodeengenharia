@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Letreiro React</title>
+    <title>Letreiro Neon</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -13,15 +14,16 @@
     <script type="text/babel">
         function Letreiro() {
             const [texto, setTexto] = React.useState('');
-            const mensagem = 'Venha estudar na Fatec';
+            const mensagem = 'VEENHA ESTUDAR NA FATEC';
             const velocidade = 150;
 
             React.useEffect(() => {
                 let index = 0;
                 const intervalId = setInterval(() => {
-                    setTexto((prevTexto) => prevTexto + mensagem[index]);
-                    index++;
-                    if (index === mensagem.length) {
+                    if (index < mensagem.length) {
+                        setTexto((prevTexto) => prevTexto + mensagem.charAt(index));
+                        index++;
+                    } else {
                         clearInterval(intervalId);
                     }
                 }, velocidade);
@@ -30,7 +32,7 @@
             }, []);
 
             return (
-                <div style={{ fontSize: '24px', fontFamily: 'Arial, sans-serif' }}>
+                <div className="letreiro">
                     {texto}
                 </div>
             );
